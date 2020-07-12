@@ -1,0 +1,28 @@
+<div class="container-fluid">
+   <div class="row">
+      <h2>Your cart</h2>
+   </div>
+
+   <table>
+      <tr>
+         <th>Quantity</th>
+         <th>Product</th>
+         <th>Price</th>
+         <th>Subtotal</th>
+         <th></th>
+      </tr>
+      <tr *ngFor="let cartLine of cart.lines">
+         <td>
+            <input type="number" class="form-control-sm" style="width:5em"
+                   [value]="cartLine.quantity"
+                   (input)="cart.changeLineQuantity($event.target.value, cartLine.product.id)" />
+         </td>
+         <td>{{cartLine.product.name}}</td>
+         <td>{{cartLine.product.Price}}</td>
+         <td>{{cartLine.subtotalPrice}}</td>
+         <td><button (click)="cart.removeProduct(cartLine.product.id)" class="btn btn-danger btn-sm">Remove</button></td>
+         <td></td>
+      </tr>
+   </table>
+   <div>Total: {{cart.totalPrice}}</div>
+</div>
