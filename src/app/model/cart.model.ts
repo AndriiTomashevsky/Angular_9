@@ -54,4 +54,11 @@ export class Cart
       this.lines.splice(index, 1);
       this.changeTotalsPriceAndQuantity();
    }
+
+   clear()
+   {
+      this.lines = [];
+      this.totalPrice = 0;
+      this.totalQuantity = 0;
+   }
 }
