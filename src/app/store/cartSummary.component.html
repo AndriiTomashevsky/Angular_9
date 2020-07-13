@@ -8,6 +8,10 @@
       <span *ngIf="cart.totalQuantity == 0">
          (empty)
       </span>
-      <button class="btn btn-sm bg-dark text-white"><span class="fa fa-shopping-cart"></span></button>
+      <button routerLink="/cart"
+              [disabled]="cart.totalQuantity == 0"
+              class="btn btn-sm bg-dark text-white">
+         <span class="fa fa-shopping-cart"></span>
+      </button>
    </small>
 </div>
